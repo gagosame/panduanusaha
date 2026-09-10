@@ -1,1 +1,259 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <title>Kontak - PanduanUsaha</title>
+  <meta name="description" content="Hubungi PanduanUsaha untuk pertanyaan, saran, atau masukan.">
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #f7f9fc;
+      color: #1f2937;
+      line-height: 1.7;
+    }
+
+    header {
+      background: #ffffff;
+      border-bottom: 1px solid #e5e7eb;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .nav {
+      max-width: 1100px;
+      margin: auto;
+      padding: 16px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 21px;
+      font-weight: 800;
+      color: #2563eb;
+      text-decoration: none;
+    }
+
+    .back {
+      text-decoration: none;
+      color: #374151;
+      font-size: 14px;
+    }
+
+    .back:hover {
+      color: #2563eb;
+    }
+
+    main {
+      max-width: 850px;
+      margin: auto;
+      padding: 55px 20px 70px;
+    }
+
+    .hero {
+      text-align: center;
+      margin-bottom: 35px;
+    }
+
+    .hero h1 {
+      font-size: 38px;
+      margin-bottom: 12px;
+      color: #111827;
+    }
+
+    .hero p {
+      color: #6b7280;
+      max-width: 650px;
+      margin: auto;
+    }
+
+    .card {
+      background: #ffffff;
+      border-radius: 18px;
+      padding: 30px;
+      margin-bottom: 20px;
+      border: 1px solid #e5e7eb;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.04);
+    }
+
+    .card h2 {
+      font-size: 22px;
+      margin-bottom: 12px;
+      color: #111827;
+    }
+
+    .card p {
+      color: #4b5563;
+      margin-bottom: 12px;
+    }
+
+    .contact-box {
+      background: #eff6ff;
+      border-radius: 14px;
+      padding: 20px;
+      margin-top: 20px;
+    }
+
+    .contact-box strong {
+      color: #1d4ed8;
+    }
+
+    .github-btn {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 12px 18px;
+      background: #2563eb;
+      color: white;
+      text-decoration: none;
+      border-radius: 10px;
+      font-weight: 600;
+    }
+
+    .github-btn:hover {
+      background: #1d4ed8;
+    }
+
+    footer {
+      background: #111827;
+      color: #d1d5db;
+      text-align: center;
+      padding: 25px 20px;
+      font-size: 14px;
+    }
+
+    footer a {
+      color: #93c5fd;
+      text-decoration: none;
+    }
+
+    @media (max-width: 600px) {
+      main {
+        padding: 40px 16px 55px;
+      }
+
+      .hero h1 {
+        font-size: 30px;
+      }
+
+      .card {
+        padding: 22px;
+      }
+
+      .nav {
+        padding: 14px 16px;
+      }
+
+      .back {
+        font-size: 13px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="nav">
+    <a href="index.html" class="logo">PanduanUsaha</a>
+    <a href="index.html" class="back">← Kembali</a>
+  </div>
+</header>
+
+<main>
+
+  <section class="hero">
+    <h1>Hubungi Kami</h1>
+    <p>
+      Punya pertanyaan, saran, atau masukan tentang PanduanUsaha?
+      Kami terbuka untuk menerima masukan dari pembaca.
+    </p>
+  </section>
+
+  <section class="card">
+    <h2>📩 Hubungi PanduanUsaha</h2>
+
+    <p>
+      Jika Anda memiliki pertanyaan mengenai artikel, ingin memberikan
+      saran topik, atau menemukan informasi yang perlu diperbaiki,
+      silakan hubungi kami.
+    </p>
+
+    <div class="contact-box">
+      <p>
+        <strong>Kontak melalui GitHub</strong>
+      </p>
+
+      <p>
+        Anda dapat mengirim pertanyaan atau masukan melalui halaman
+        Issues pada repository PanduanUsaha.
+      </p>
+
+      <a
+        href="https://github.com/gagosame/panduanusaha/issues"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="github-btn">
+        Kirim Pertanyaan
+      </a>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>💡 Saran dan Masukan</h2>
+
+    <p>
+      PanduanUsaha terus dikembangkan agar dapat memberikan informasi
+      yang lebih praktis dan bermanfaat bagi pemilik usaha, penjual
+      online, dan UMKM.
+    </p>
+
+    <p>
+      Masukan dari pembaca sangat membantu kami dalam meningkatkan
+      kualitas konten dan fitur website.
+    </p>
+  </section>
+
+  <section class="card">
+    <h2>🔗 Halaman Penting</h2>
+
+    <p>
+      <a href="tentang.html">Tentang PanduanUsaha</a>
+    </p>
+
+    <p>
+      <a href="privasi.html">Kebijakan Privasi</a>
+    </p>
+
+    <p>
+      <a href="syarat.html">Syarat Penggunaan</a>
+    </p>
+  </section>
+
+</main>
+
+<footer>
+  <p>
+    © 2026 PanduanUsaha. Semua hak dilindungi.
+  </p>
+
+  <p>
+    <a href="index.html">Beranda</a> ·
+    <a href="tentang.html">Tentang</a> ·
+    <a href="privasi.html">Privasi</a> ·
+    <a href="syarat.html">Syarat</a>
+  </p>
+</footer>
+
+</body>
+  </html>
