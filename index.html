@@ -4,18 +4,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>PanduanUsaha — Panduan Bisnis & UMKM Indonesia</title>
+  <title>PanduanUsaha — Tips Bisnis & UMKM Indonesia</title>
 
-  <meta
-    name="description"
-    content="Panduan praktis untuk memulai, mengembangkan, dan mengelola usaha. Tips UMKM, jualan online, keuangan, marketing, dan bisnis."
-  >
+  <meta name="description" content="Panduan praktis untuk mulai, mengembangkan, dan mengelola usaha. Temukan tips bisnis, UMKM, jualan online, marketing, dan keuangan usaha.">
 
   <style>
     * {
-      box-sizing: border-box;
       margin: 0;
       padding: 0;
+      box-sizing: border-box;
     }
 
     html {
@@ -25,30 +22,29 @@
     body {
       font-family: Arial, Helvetica, sans-serif;
       background: #f8fafc;
-      color: #172033;
+      color: #1e293b;
       line-height: 1.6;
+      overflow-x: hidden;
     }
 
     a {
       text-decoration: none;
-      color: inherit;
     }
 
     .container {
-      width: 100%;
-      max-width: 1120px;
+      width: min(100% - 32px, 1100px);
       margin: auto;
-      padding: 0 18px;
     }
 
-    /* NAVBAR */
+    /* ================= NAVBAR ================= */
 
     header {
+      background: rgba(255, 255, 255, 0.96);
+      border-bottom: 1px solid #e2e8f0;
       position: sticky;
       top: 0;
       z-index: 100;
-      background: rgba(255,255,255,.96);
-      border-bottom: 1px solid #e5e7eb;
+      backdrop-filter: blur(10px);
     }
 
     .navbar {
@@ -56,12 +52,13 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 15px;
+      gap: 20px;
     }
 
     .logo {
       font-size: 21px;
       font-weight: 800;
+      color: #0f172a;
       white-space: nowrap;
     }
 
@@ -71,9 +68,14 @@
 
     .nav-links {
       display: none;
+      align-items: center;
       gap: 24px;
+    }
+
+    .nav-links a {
+      color: #475569;
       font-size: 14px;
-      color: #64748b;
+      font-weight: 600;
     }
 
     .nav-links a:hover {
@@ -82,41 +84,44 @@
 
     .nav-button {
       background: #2563eb;
-      color: white;
-      padding: 9px 14px;
-      border-radius: 8px;
-      font-size: 12px;
-      font-weight: 700;
+      color: white !important;
+      padding: 9px 15px;
+      border-radius: 9px;
     }
 
-    /* HERO */
+    /* ================= HERO ================= */
 
     .hero {
       padding: 70px 0;
       background:
-        radial-gradient(circle at 85% 15%, #dbeafe, transparent 35%),
-        #eff6ff;
+        radial-gradient(circle at top right, #dbeafe, transparent 35%),
+        linear-gradient(180deg, #ffffff, #f8fafc);
     }
 
-    .hero-content {
-      max-width: 780px;
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 40px;
+      align-items: center;
     }
 
     .badge {
       display: inline-block;
-      padding: 6px 11px;
-      border-radius: 999px;
       background: #dbeafe;
       color: #1d4ed8;
-      font-size: 11px;
-      font-weight: 800;
+      padding: 7px 13px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 18px;
     }
 
     .hero h1 {
-      margin-top: 18px;
-      font-size: clamp(38px, 8vw, 64px);
+      font-size: clamp(36px, 8vw, 58px);
       line-height: 1.08;
-      letter-spacing: -2px;
+      letter-spacing: -1.5px;
+      color: #0f172a;
+      margin-bottom: 20px;
     }
 
     .hero h1 span {
@@ -124,65 +129,114 @@
     }
 
     .hero p {
-      max-width: 650px;
-      margin-top: 20px;
       color: #64748b;
-      font-size: 16px;
+      font-size: 17px;
+      max-width: 650px;
+      margin-bottom: 28px;
     }
 
     .hero-buttons {
       display: flex;
       flex-direction: column;
-      gap: 10px;
-      margin-top: 28px;
+      gap: 12px;
     }
 
-    .button-primary,
-    .button-secondary {
-      display: block;
-      text-align: center;
-      padding: 13px 18px;
-      border-radius: 9px;
-      font-size: 14px;
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 12px 20px;
+      border-radius: 10px;
       font-weight: 700;
+      font-size: 15px;
     }
 
-    .button-primary {
+    .btn-primary {
       background: #2563eb;
       color: white;
+      box-shadow: 0 8px 20px rgba(37, 99, 235, 0.2);
     }
 
-    .button-secondary {
+    .btn-primary:hover {
+      background: #1d4ed8;
+    }
+
+    .btn-secondary {
       background: white;
-      border: 1px solid #dbe3ef;
+      color: #1e293b;
+      border: 1px solid #cbd5e1;
     }
 
-    /* SECTION */
-
-    section {
-      scroll-margin-top: 80px;
+    .hero-card {
+      background: white;
+      border: 1px solid #e2e8f0;
+      border-radius: 22px;
+      padding: 25px;
+      box-shadow: 0 20px 45px rgba(15, 23, 42, 0.08);
     }
+
+    .hero-card-icon {
+      font-size: 40px;
+      margin-bottom: 12px;
+    }
+
+    .hero-card h3 {
+      font-size: 21px;
+      margin-bottom: 8px;
+      color: #0f172a;
+    }
+
+    .hero-card p {
+      font-size: 14px;
+      margin-bottom: 18px;
+    }
+
+    .mini-list {
+      display: grid;
+      gap: 10px;
+    }
+
+    .mini-list div {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      padding: 11px 13px;
+      border-radius: 9px;
+      font-size: 14px;
+      color: #475569;
+    }
+
+    /* ================= GENERAL SECTION ================= */
 
     .section {
       padding: 70px 0;
     }
 
     .section-title {
-      text-align: center;
-      margin-bottom: 30px;
+      margin-bottom: 32px;
+    }
+
+    .section-title span {
+      color: #2563eb;
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .5px;
     }
 
     .section-title h2 {
-      font-size: 29px;
+      font-size: 30px;
+      color: #0f172a;
+      margin-top: 5px;
     }
 
     .section-title p {
-      margin-top: 7px;
       color: #64748b;
-      font-size: 14px;
+      margin-top: 8px;
+      max-width: 650px;
     }
 
-    /* CATEGORIES */
+    /* ================= CATEGORIES ================= */
 
     .category-grid {
       display: grid;
@@ -192,32 +246,34 @@
 
     .category {
       background: white;
-      border: 1px solid #e5e7eb;
-      border-radius: 13px;
-      padding: 20px 12px;
-      text-align: center;
+      border: 1px solid #e2e8f0;
+      border-radius: 15px;
+      padding: 20px;
       transition: .2s;
     }
 
     .category:hover {
       transform: translateY(-3px);
-      box-shadow: 0 10px 25px rgba(15,23,42,.07);
+      border-color: #bfdbfe;
     }
 
     .category-icon {
       font-size: 27px;
-      margin-bottom: 7px;
+      margin-bottom: 10px;
     }
 
-    .category strong {
+    .category h3 {
+      font-size: 16px;
+      color: #0f172a;
+      margin-bottom: 4px;
+    }
+
+    .category p {
       font-size: 13px;
+      color: #64748b;
     }
 
-    /* ARTICLES */
-
-    .articles {
-      background: white;
-    }
+    /* ================= ARTICLES ================= */
 
     .article-grid {
       display: grid;
@@ -225,166 +281,143 @@
       gap: 18px;
     }
 
-    .article {
+    .article-card {
       background: white;
-      border: 1px solid #e5e7eb;
-      border-radius: 14px;
-      overflow: hidden;
+      border: 1px solid #e2e8f0;
+      border-radius: 17px;
+      padding: 23px;
       transition: .2s;
     }
 
-    .article:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 15px 35px rgba(15,23,42,.09);
-    }
-
-    .article-image {
-      height: 155px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: linear-gradient(135deg,#dbeafe,#eff6ff);
-      font-size: 48px;
-    }
-
-    .article-content {
-      padding: 20px;
+    .article-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 30px rgba(15, 23, 42, .07);
     }
 
     .article-category {
+      display: inline-block;
       color: #2563eb;
-      font-size: 10px;
-      font-weight: 800;
-      text-transform: uppercase;
+      background: #eff6ff;
+      padding: 5px 10px;
+      border-radius: 7px;
+      font-size: 12px;
+      font-weight: 700;
+      margin-bottom: 13px;
     }
 
-    .article h3 {
-      margin-top: 7px;
-      font-size: 18px;
-      line-height: 1.4;
+    .article-card h3 {
+      font-size: 20px;
+      line-height: 1.35;
+      color: #0f172a;
+      margin-bottom: 10px;
     }
 
-    .article p {
-      margin-top: 9px;
+    .article-card p {
       color: #64748b;
-      font-size: 13px;
+      font-size: 14px;
+      margin-bottom: 17px;
     }
 
     .read-more {
-      display: inline-block;
-      margin-top: 14px;
       color: #2563eb;
-      font-size: 13px;
-      font-weight: 700;
-    }
-
-    /* TOOLS */
-
-    .tools {
-      background: #172033;
-      color: white;
-    }
-
-    .tool-box {
-      text-align: center;
-      max-width: 800px;
-      margin: auto;
-    }
-
-    .tool-box h2 {
-      font-size: 30px;
-    }
-
-    .tool-box p {
-      max-width: 620px;
-      margin: 12px auto 24px;
-      color: #aab4c5;
       font-size: 14px;
-    }
-
-    .tool-button {
-      display: inline-block;
-      background: white;
-      color: #172033;
-      padding: 12px 20px;
-      border-radius: 9px;
       font-weight: 700;
-      font-size: 13px;
     }
 
-    /* ABOUT */
+    /* ================= TOOLS ================= */
+
+    .tools-box {
+      background: #0f172a;
+      color: white;
+      border-radius: 22px;
+      padding: 30px 22px;
+      text-align: center;
+    }
+
+    .tools-box h2 {
+      font-size: 28px;
+      margin-bottom: 10px;
+    }
+
+    .tools-box p {
+      color: #cbd5e1;
+      max-width: 650px;
+      margin: 0 auto 23px;
+    }
+
+    .tools-button {
+      display: inline-flex;
+      background: white;
+      color: #0f172a;
+      padding: 12px 20px;
+      border-radius: 10px;
+      font-weight: 700;
+    }
+
+    /* ================= ABOUT ================= */
 
     .about-box {
-      max-width: 800px;
-      margin: auto;
       background: white;
-      border: 1px solid #e5e7eb;
-      padding: 28px;
-      border-radius: 15px;
-      text-align: center;
+      border: 1px solid #e2e8f0;
+      border-radius: 18px;
+      padding: 26px;
     }
 
     .about-box p {
       color: #64748b;
-      font-size: 14px;
-      margin-top: 12px;
+      margin-bottom: 15px;
     }
 
-    /* FOOTER */
+    /* ================= FOOTER ================= */
 
     footer {
-      background: #172033;
-      color: white;
-      padding: 45px 0 20px;
+      background: #0f172a;
+      color: #94a3b8;
+      padding: 40px 0 25px;
     }
 
-    .footer-content {
-      display: flex;
-      flex-direction: column;
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1fr;
       gap: 30px;
+      margin-bottom: 30px;
     }
 
-    .footer-brand {
-      max-width: 360px;
+    .footer-brand h3 {
+      color: white;
+      font-size: 21px;
+      margin-bottom: 10px;
     }
 
     .footer-brand p {
-      margin-top: 10px;
-      color: #94a3b8;
-      font-size: 12px;
+      font-size: 14px;
+      max-width: 400px;
     }
 
-    .footer-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 45px;
-    }
-
-    .footer-links div {
-      display: flex;
-      flex-direction: column;
-      gap: 7px;
-    }
-
-    .footer-links strong {
-      font-size: 13px;
+    .footer-links h4 {
+      color: white;
+      margin-bottom: 12px;
     }
 
     .footer-links a {
+      display: block;
       color: #94a3b8;
-      font-size: 12px;
+      font-size: 14px;
+      margin-bottom: 8px;
+    }
+
+    .footer-links a:hover {
+      color: white;
     }
 
     .copyright {
-      margin-top: 35px;
-      padding-top: 18px;
-      border-top: 1px solid #334155;
-      color: #64748b;
-      font-size: 10px;
+      border-top: 1px solid #1e293b;
+      padding-top: 22px;
       text-align: center;
+      font-size: 13px;
     }
 
-    /* TABLET */
+    /* ================= TABLET ================= */
 
     @media (min-width: 600px) {
 
@@ -392,27 +425,24 @@
         flex-direction: row;
       }
 
-      .button-primary,
-      .button-secondary {
-        display: inline-block;
+      .btn {
         width: auto;
       }
 
       .category-grid {
-        grid-template-columns: repeat(4,1fr);
+        grid-template-columns: repeat(3, 1fr);
       }
 
       .article-grid {
-        grid-template-columns: repeat(2,1fr);
+        grid-template-columns: repeat(2, 1fr);
       }
 
-      .footer-content {
-        flex-direction: row;
-        justify-content: space-between;
+      .footer-grid {
+        grid-template-columns: 2fr 1fr 1fr;
       }
     }
 
-    /* DESKTOP */
+    /* ================= DESKTOP ================= */
 
     @media (min-width: 801px) {
 
@@ -421,11 +451,15 @@
       }
 
       .hero {
-        padding: 105px 0;
+        padding: 95px 0;
+      }
+
+      .hero-grid {
+        grid-template-columns: 1.2fr .8fr;
       }
 
       .article-grid {
-        grid-template-columns: repeat(3,1fr);
+        grid-template-columns: repeat(3, 1fr);
       }
     }
   </style>
@@ -433,144 +467,191 @@
 
 <body>
 
-<!-- NAVBAR -->
+  <!-- ================= NAVBAR ================= -->
 
-<header>
-  <div class="container navbar">
+  <header>
+    <div class="container navbar">
 
-    <a href="#beranda" class="logo">
-      Panduan<span>Usaha</span>
-    </a>
+      <a href="index.html" class="logo">
+        Panduan<span>Usaha</span>
+      </a>
 
-    <nav class="nav-links">
-      <a href="#beranda">Beranda</a>
-      <a href="#artikel">Artikel</a>
-      <a href="#kategori">Kategori</a>
-      <a href="#tools">Tools</a>
-      <a href="tentang">Tentang</a>
-    </nav>
-
-    <a href="#artikel" class="nav-button">
-      Baca Panduan
-    </a>
-
-  </div>
-</header>
-
-
-<!-- HERO -->
-
-<main>
-
-<section class="hero" id="beranda">
-
-  <div class="container">
-
-    <div class="hero-content">
-
-      <div class="badge">
-        📚 Panduan Bisnis Indonesia
-      </div>
-
-      <h1>
-        Belajar usaha.
-        <span>Kembangkan bisnis.</span>
-      </h1>
-
-      <p>
-        Panduan praktis untuk UMKM, seller online,
-        dan siapa saja yang ingin memulai atau
-        mengembangkan usaha.
-      </p>
-
-      <div class="hero-buttons">
-
-        <a href="#artikel" class="button-primary">
-          📖 Baca Artikel
-        </a>
-
-        <a href="#kategori" class="button-secondary">
-          Lihat Kategori
-        </a>
-
-      </div>
+      <nav class="nav-links">
+        <a href="index.html">Beranda</a>
+        <a href="#artikel">Artikel</a>
+        <a href="#kategori">Kategori</a>
+        <a href="tentang.html">Tentang</a>
+        <a href="privasi.html">Privasi</a>
+        <a href="syarat.html">Syarat</a>
+      </nav>
 
     </div>
-
-  </div>
-
-</section>
+  </header>
 
 
-<!-- KATEGORI -->
+  <!-- ================= HERO ================= -->
 
-<section class="section" id="kategori">
+  <section class="hero">
 
-  <div class="container">
+    <div class="container hero-grid">
 
-    <div class="section-title">
-      <h2>Kategori Panduan</h2>
-      <p>Pilih topik yang ingin kamu pelajari.</p>
-    </div>
+      <div>
 
-    <div class="category-grid">
-
-      <div class="category">
-        <div class="category-icon">💡</div>
-        <strong>Ide Usaha</strong>
-      </div>
-
-      <div class="category">
-        <div class="category-icon">🛒</div>
-        <strong>Jualan Online</strong>
-      </div>
-
-      <div class="category">
-        <div class="category-icon">💰</div>
-        <strong>Keuangan</strong>
-      </div>
-
-      <div class="category">
-        <div class="category-icon">📣</div>
-        <strong>Marketing</strong>
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- ARTIKEL -->
-
-<section class="section articles" id="artikel">
-
-  <div class="container">
-
-    <div class="section-title">
-
-      <h2>Artikel Terbaru</h2>
-
-      <p>
-        Panduan sederhana yang bisa langsung diterapkan.
-      </p>
-
-    </div>
-
-
-    <div class="article-grid">
-
-
-      <!-- ARTIKEL 1 -->
-
-      <article class="article">
-
-        <div class="article-image">
-          💰
+        <div class="badge">
+          🚀 Panduan Bisnis Indonesia
         </div>
 
-        <div class="article-content">
+        <h1>
+          Bantu Usahamu
+          <span>Tumbuh Lebih Baik</span>
+        </h1>
+
+        <p>
+          Temukan panduan praktis seputar bisnis, UMKM,
+          jualan online, marketing, dan keuangan usaha
+          yang mudah dipahami dan bisa langsung diterapkan.
+        </p>
+
+        <div class="hero-buttons">
+
+          <a href="#artikel" class="btn btn-primary">
+            📚 Baca Panduan
+          </a>
+
+          <a href="https://gagosame.github.io/aikita/" class="btn btn-secondary">
+            ✨ Coba AIKita
+          </a>
+
+        </div>
+
+      </div>
+
+
+      <div class="hero-card">
+
+        <div class="hero-card-icon">
+          💡
+        </div>
+
+        <h3>
+          Mulai dari yang sederhana
+        </h3>
+
+        <p>
+          Pelajari dasar-dasar usaha dengan panduan
+          yang dibuat khusus untuk pemula dan pelaku UMKM.
+        </p>
+
+        <div class="mini-list">
+
+          <div>💰 Kelola keuangan usaha</div>
+
+          <div>🛒 Tingkatkan penjualan online</div>
+
+          <div>📣 Pelajari marketing</div>
+
+          <div>🚀 Kembangkan bisnis</div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- ================= KATEGORI ================= -->
+
+  <section class="section" id="kategori">
+
+    <div class="container">
+
+      <div class="section-title">
+
+        <span>Kategori</span>
+
+        <h2>Jelajahi Topik Usaha</h2>
+
+        <p>
+          Pilih topik yang sesuai dengan kebutuhan
+          bisnis kamu.
+        </p>
+
+      </div>
+
+
+      <div class="category-grid">
+
+        <div class="category">
+          <div class="category-icon">💡</div>
+          <h3>Ide Usaha</h3>
+          <p>Peluang dan inspirasi bisnis.</p>
+        </div>
+
+        <div class="category">
+          <div class="category-icon">🛒</div>
+          <h3>Jualan Online</h3>
+          <p>Tips meningkatkan penjualan online.</p>
+        </div>
+
+        <div class="category">
+          <div class="category-icon">💰</div>
+          <h3>Keuangan</h3>
+          <p>Kelola modal, biaya, dan keuntungan.</p>
+        </div>
+
+        <div class="category">
+          <div class="category-icon">📣</div>
+          <h3>Marketing</h3>
+          <p>Strategi promosi dan mendapatkan pelanggan.</p>
+        </div>
+
+        <div class="category">
+          <div class="category-icon">📊</div>
+          <h3>Bisnis</h3>
+          <p>Panduan mengelola dan mengembangkan usaha.</p>
+        </div>
+
+        <div class="category">
+          <div class="category-icon">🧰</div>
+          <h3>Tools</h3>
+          <p>Alat yang membantu pekerjaan usaha.</p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- ================= ARTIKEL ================= -->
+
+  <section class="section" id="artikel">
+
+    <div class="container">
+
+      <div class="section-title">
+
+        <span>Artikel Terbaru</span>
+
+        <h2>Panduan Usaha</h2>
+
+        <p>
+          Informasi praktis untuk membantu kamu
+          menjalankan bisnis dengan lebih baik.
+        </p>
+
+      </div>
+
+
+      <div class="article-grid">
+
+
+        <!-- ARTIKEL 1 -->
+
+        <article class="article-card">
 
           <div class="article-category">
             Keuangan Usaha
@@ -581,31 +662,21 @@
           </h3>
 
           <p>
-            Pelajari cara menghitung modal dan menentukan
-            harga jual produk agar usaha tetap mendapatkan keuntungan.
+            Pelajari cara menghitung modal, biaya tambahan,
+            dan keuntungan untuk menentukan harga jual
+            produk dengan lebih tepat.
           </p>
 
-          <a
-            href="harga-jual-produk.html"
-            class="read-more"
-          >
+          <a href="harga-jual-produk.html" class="read-more">
             Baca selengkapnya →
           </a>
 
-        </div>
-
-      </article>
+        </article>
 
 
-      <!-- ARTIKEL 2 -->
+        <!-- ARTIKEL 2 -->
 
-      <article class="article">
-
-        <div class="article-image">
-          📊
-        </div>
-
-        <div class="article-content">
+        <article class="article-card">
 
           <div class="article-category">
             Keuangan Usaha
@@ -616,192 +687,203 @@
           </h3>
 
           <p>
-            Ketahui cara menghitung pendapatan, biaya,
-            keuntungan kotor, dan keuntungan bersih.
+            Ketahui cara menghitung omzet, biaya,
+            keuntungan kotor, dan keuntungan bersih
+            dari kegiatan jualan.
           </p>
 
-          <a
-            href="cara-menghitung-keuntungan-jualan.html"
-            class="read-more"
-          >
+          <a href="cara-menghitung-keuntungan-jualan.html" class="read-more">
             Baca selengkapnya →
           </a>
 
-        </div>
-
-      </article>
+        </article>
 
 
-      <!-- ARTIKEL 3 -->
+        <!-- ARTIKEL 3 -->
 
-      <article class="article">
-
-        <div class="article-image">
-          🛍️
-        </div>
-
-        <div class="article-content">
+        <article class="article-card">
 
           <div class="article-category">
             Jualan Online
           </div>
 
           <h3>
-            Cara Membuat Deskripsi Produk yang Menarik
+            Cara Membuat Deskripsi Produk yang Menarik untuk Jualan Online
           </h3>
 
           <p>
-            Panduan membuat deskripsi produk yang jelas,
-            menarik, dan membantu calon pembeli memahami produk.
+            Pelajari cara membuat deskripsi produk yang
+            jelas, menarik, dan membantu calon pelanggan
+            memahami produk.
           </p>
 
           <a href="cara-membuat-deskripsi-produk.html" class="read-more">
-  Baca selengkapnya →
+            Baca selengkapnya →
           </a>
-          
-            
-          
-            
-          
 
-        </div>
+        </article>
 
-      </article>
 
+      </div>
 
     </div>
 
-  </div>
-
-</section>
+  </section>
 
 
-<!-- TOOLS -->
+  <!-- ================= TOOLS ================= -->
 
-<section class="section tools" id="tools">
+  <section class="section">
 
-  <div class="container">
+    <div class="container">
 
-    <div class="tool-box">
+      <div class="tools-box">
 
-      <h2>
-        Butuh bantuan membuat deskripsi produk?
-      </h2>
-
-      <p>
-        Coba AIKita untuk membantu membuat deskripsi
-        produk dengan bantuan AI.
-      </p>
-
-      <a
-        href="https://gagosame.github.io/aikita/"
-        class="tool-button"
-        target="_blank"
-        rel="noopener"
-      >
-        ✨ Coba AIKita
-      </a>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- TENTANG -->
-
-<section class="section" id="tentang">
-
-  <div class="container">
-
-    <div class="section-title">
-
-      <h2>Tentang PanduanUsaha</h2>
-
-    </div>
-
-    <div class="about-box">
-
-      <p>
-        PanduanUsaha dibuat untuk membantu pemula dan
-        pelaku UMKM mendapatkan informasi praktis tentang
-        usaha, jualan online, keuangan, dan marketing.
-      </p>
-
-      <p>
-        Kami berusaha menyajikan panduan yang sederhana,
-        mudah dipahami, dan dapat diterapkan dalam kegiatan
-        usaha sehari-hari.
-      </p>
-
-    </div>
-
-  </div>
-
-</section>
-
-</main>
-
-
-<!-- FOOTER -->
-
-<footer>
-
-  <div class="container">
-
-    <div class="footer-content">
-
-      <div class="footer-brand">
-
-        <div class="logo">
-          Panduan<span>Usaha</span>
-        </div>
+        <h2>
+          ✨ Butuh Bantuan Membuat Konten?
+        </h2>
 
         <p>
-          Panduan praktis untuk mulai,
-          mengembangkan, dan mengelola usaha.
+          Gunakan AIKita untuk membantu membuat
+          deskripsi produk dan konten jualan dengan lebih cepat.
         </p>
 
-      </div>
-
-
-      <div class="footer-links">
-
-        <div>
-
-          <strong>Navigasi</strong>
-
-          <a href="#beranda">Beranda</a>
-          <a href="#artikel">Artikel</a>
-          <a href="#kategori">Kategori</a>
-
-        </div>
-
-
-        <div>
-
-          <strong>Informasi</strong>
-
-          <a href="tentang">Tentang</a>
-          <a href="#tools">Tools</a>
-
-        </div>
+        <a
+          href="https://gagosame.github.io/aikita/"
+          class="tools-button"
+        >
+          Coba AIKita Gratis →
+        </a>
 
       </div>
 
     </div>
 
+  </section>
 
-    <div class="copyright">
 
-      © 2026 PanduanUsaha. Semua hak dilindungi.
+  <!-- ================= ABOUT ================= -->
+
+  <section class="section" id="tentang">
+
+    <div class="container">
+
+      <div class="section-title">
+
+        <span>Tentang Kami</span>
+
+        <h2>Tentang PanduanUsaha</h2>
+
+      </div>
+
+
+      <div class="about-box">
+
+        <p>
+          PanduanUsaha adalah website yang menyediakan
+          informasi dan panduan praktis seputar bisnis,
+          UMKM, jualan online, marketing, dan pengelolaan usaha.
+        </p>
+
+        <p>
+          Kami berusaha menyajikan informasi dengan bahasa
+          yang sederhana agar dapat membantu pemula maupun
+          pelaku usaha dalam mengambil keputusan dan
+          mengembangkan bisnis mereka.
+        </p>
+
+        <a href="tentang.html" class="read-more">
+          Selengkapnya tentang PanduanUsaha →
+        </a>
+
+      </div>
 
     </div>
 
-  </div>
+  </section>
 
-</footer>
+
+  <!-- ================= FOOTER ================= -->
+
+  <footer>
+
+    <div class="container">
+
+      <div class="footer-grid">
+
+
+        <div class="footer-brand">
+
+          <h3>
+            PanduanUsaha
+          </h3>
+
+          <p>
+            Panduan praktis untuk mulai,
+            mengembangkan, dan mengelola usaha.
+          </p>
+
+        </div>
+
+
+        <div class="footer-links">
+
+          <h4>
+            Navigasi
+          </h4>
+
+          <a href="index.html">
+            Beranda
+          </a>
+
+          <a href="#artikel">
+            Artikel
+          </a>
+
+          <a href="#kategori">
+            Kategori
+          </a>
+
+          <a href="tentang.html">
+            Tentang
+          </a>
+
+        </div>
+
+
+        <div class="footer-links">
+
+          <h4>
+            Informasi
+          </h4>
+
+          <a href="privasi.html">
+            Kebijakan Privasi
+          </a>
+
+          <a href="syarat.html">
+            Syarat Penggunaan
+          </a>
+
+          <a href="kontak.html">
+            Kontak
+          </a>
+
+        </div>
+
+
+      </div>
+
+
+      <div class="copyright">
+
+        © 2026 PanduanUsaha. Semua hak dilindungi.
+
+      </div>
+
+    </div>
+
+  </footer>
 
 </body>
   </html>
