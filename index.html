@@ -1,1 +1,464 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <title>PanduanUsaha — Tips Bisnis & UMKM Indonesia</title>
+
+  <meta
+    name="description"
+    content="Panduan praktis seputar usaha, UMKM, jualan online, keuangan, marketing, dan tips bisnis untuk Indonesia."
+  >
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      color: #172033;
+      background: #f8fafc;
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1120px;
+      margin: auto;
+      padding: 0 18px;
+    }
+
+    /* NAVBAR */
+
+    header {
+      background: white;
+      border-bottom: 1px solid #e5e7eb;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .navbar {
+      min-height: 68px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .logo {
+      font-size: 20px;
+      font-weight: 800;
+      color: #172033;
+      white-space: nowrap;
+    }
+
+    .logo span {
+      color: #2563eb;
+    }
+
+    .nav-links {
+      display: none;
+      gap: 25px;
+      font-size: 14px;
+      color: #64748b;
+    }
+
+    .nav-links a:hover {
+      color: #2563eb;
+    }
+
+    .nav-button {
+      padding: 9px 14px;
+      border-radius: 8px;
+      background: #2563eb;
+      color: white;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    /* HERO */
+
+    .hero {
+      background:
+        radial-gradient(circle at 85% 15%, #dbeafe, transparent 35%),
+        #eff6ff;
+      padding: 70px 0;
+    }
+
+    .hero-content {
+      max-width: 760px;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 6px 11px;
+      border-radius: 999px;
+      background: #dbeafe;
+      color: #1d4ed8;
+      font-size: 11px;
+      font-weight: 800;
+    }
+
+    .hero h1 {
+      margin-top: 18px;
+      font-size: clamp(38px, 8vw, 64px);
+      line-height: 1.08;
+      letter-spacing: -2px;
+    }
+
+    .hero h1 span {
+      color: #2563eb;
+    }
+
+    .hero p {
+      max-width: 650px;
+      margin-top: 20px;
+      color: #64748b;
+      font-size: 16px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 27px;
+    }
+
+    .button-primary,
+    .button-secondary {
+      display: inline-block;
+      padding: 13px 18px;
+      border-radius: 9px;
+      text-align: center;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .button-primary {
+      background: #2563eb;
+      color: white;
+    }
+
+    .button-secondary {
+      background: white;
+      border: 1px solid #dbe3ef;
+    }
+
+    /* CATEGORIES */
+
+    .categories {
+      padding: 45px 0 20px;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 28px;
+    }
+
+    .section-title h2 {
+      font-size: 28px;
+    }
+
+    .section-title p {
+      margin-top: 7px;
+      color: #64748b;
+      font-size: 14px;
+    }
+
+    .category-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .category {
+      background: white;
+      border: 1px solid #e5e7eb;
+      border-radius: 12px;
+      padding: 18px;
+      text-align: center;
+      font-weight: 700;
+      font-size: 13px;
+    }
+
+    .category-icon {
+      font-size: 25px;
+      margin-bottom: 6px;
+    }
+
+    /* ARTICLES */
+
+    .articles {
+      padding: 55px 0 80px;
+    }
+
+    .article-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 18px;
+    }
+
+    .article {
+      background: white;
+      border: 1px solid #e5e7eb;
+      border-radius: 14px;
+      overflow: hidden;
+      transition: .2s;
+    }
+
+    .article:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 15px 35px rgba(15, 23, 42, .08);
+    }
+
+    .article-image {
+      height: 150px;
+      background: linear-gradient(135deg, #dbeafe, #eff6ff);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 45px;
+    }
+
+    .article-content {
+      padding: 20px;
+    }
+
+    .article-category {
+      color: #2563eb;
+      font-size: 10px;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+
+    .article h3 {
+      margin-top: 7px;
+      font-size: 18px;
+      line-height: 1.35;
+    }
+
+    .article p {
+      margin-top: 9px;
+      color: #64748b;
+      font-size: 13px;
+    }
+
+    .read-more {
+      display: inline-block;
+      margin-top: 13px;
+      color: #2563eb;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    /* TOOLS */
+
+    .tools {
+      padding: 70px 0;
+      background: white;
+    }
+
+    .tool-box {
+      max-width: 900px;
+      margin: auto;
+      padding: 30px 20px;
+      border-radius: 18px;
+      background: #172033;
+      color: white;
+      text-align: center;
+    }
+
+    .tool-box h2 {
+      font-size: 30px;
+    }
+
+    .tool-box p {
+      margin: 12px auto 22px;
+      max-width: 600px;
+      color: #aab4c5;
+      font-size: 14px;
+    }
+
+    .tool-button {
+      display: inline-block;
+      padding: 12px 18px;
+      border-radius: 9px;
+      background: white;
+      color: #172033;
+      font-weight: 700;
+      font-size: 13px;
+    }
+
+    /* FOOTER */
+
+    footer {
+      background: #172033;
+      color: white;
+      padding: 45px 0 20px;
+    }
+
+    .footer-content {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+    }
+
+    .footer-brand {
+      max-width: 350px;
+    }
+
+    .footer-brand p {
+      margin-top: 10px;
+      color: #94a3b8;
+      font-size: 12px;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 50px;
+    }
+
+    .footer-links div {
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+    }
+
+    .footer-links strong {
+      font-size: 13px;
+    }
+
+    .footer-links a {
+      color: #94a3b8;
+      font-size: 12px;
+    }
+
+    .copyright {
+      margin-top: 35px;
+      padding-top: 18px;
+      border-top: 1px solid #334155;
+      color: #64748b;
+      font-size: 10px;
+      text-align: center;
+    }
+
+    /* TABLET */
+
+    @media (min-width: 600px) {
+      .hero-buttons {
+        flex-direction: row;
+      }
+
+      .button-primary,
+      .button-secondary {
+        width: auto;
+      }
+
+      .category-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+
+      .article-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .footer-content {
+        flex-direction: row;
+        justify-content: space-between;
+      }
+    }
+
+    /* DESKTOP */
+
+    @media (min-width: 801px) {
+      .nav-links {
+        display: flex;
+      }
+
+      .hero {
+        padding: 100px 0;
+      }
+
+      .article-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+
+  <header>
+    <div class="container navbar">
+
+      <a href="#" class="logo">
+        Panduan<span>Usaha</span>
+      </a>
+
+      <nav class="nav-links">
+        <a href="#beranda">Beranda</a>
+        <a href="#artikel">Artikel</a>
+        <a href="#kategori">Kategori</a>
+        <a href="#tools">Tools</a>
+        <a href="#tentang">Tentang</a>
+      </nav>
+
+      <a href="#artikel" class="nav-button">
+        Baca Panduan
+      </a>
+
+    </div>
+  </header>
+
+
+  <main>
+
+    <!-- HERO -->
+
+    <section class="hero" id="beranda">
+      <div class="container">
+
+        <div class="hero-content">
+
+          <div class="badge">
+            📚 Panduan Bisnis Indonesia
+          </div>
+
+          <h1>
+            Belajar usaha.
+            <span>Kembangkan bisnis.</span>
+          </h1>
+
+          <p>
+            Panduan praktis untuk UMKM, seller online,
+            dan siapa saja yang ingin memulai atau
+            mengembangkan usaha.
+          </p>
+
+          <div class="hero-buttons">
+
+            <a href="#artikel" class="button-primary">
+              📖 Baca Artikel
+            </a>
+
+            <a href="#kategori" class="button-secondary">
+              Lihat Kategori
+            </a>
+
+  </div>
