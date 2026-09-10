@@ -15,6 +15,7 @@ excluded = {
 articles = []
 
 for filename in os.listdir("."):
+
     if not filename.endswith(".html"):
         continue
 
@@ -27,8 +28,8 @@ for filename in os.listdir("."):
     except Exception:
         continue
 
-    # Hanya mengambil halaman yang memiliki struktur artikel
-    if '<article class="article">' not in content:
+    # Menerima artikel lama maupun artikel baru
+    if not re.search(r"<article\b", content, re.I):
         continue
 
     title_match = re.search(
@@ -87,6 +88,7 @@ articles.sort(key=lambda x: x["file"])
 cards = []
 
 for article in articles:
+
     filename = html.escape(
         article["file"],
         quote=True
@@ -112,38 +114,54 @@ with open(homepage, "r", encoding="utf-8") as f:
     index = f.read()
 
 
-marker = '<div id="article-list" class="articles">'
+new_article_section = f"""
+<section id="artikel">
 
-if marker not in index:
+  <div class="container">
+
+    <div class="section-title">
+      <h2>Artikel Terbaru</h2>
+      <p>
+        Panduan terbaru dari PanduanUsaha.
+      </p>
+    </div>
+
+    <div id="article-list" class="articles">
+
+{generated}
+
+    </div>
+
+  </div>
+
+</section>
+"""
+
+
+pattern = r'<section id="artikel">.*?</section>'
+
+if not re.search(pattern, index, re.I | re.S):
     raise Exception(
-        "Bagian article-list tidak ditemukan di index.html"
+        "Bagian artikel tidak ditemukan di index.html"
     )
 
 
-start = index.index(marker) + len(marker)
-
-# Cari penutup div article-list.
-end = index.find("</div>", start)
-
-if end == -1:
-    raise Exception(
-        "Penutup article-list tidak ditemukan"
-    )
-
-
-new_index = (
-    index[:start]
-    + "\n"
-    + generated
-    + "\n\n    "
-    + index[end:]
+index = re.sub(
+    pattern,
+    new_article_section.strip(),
+    index,
+    count=1,
+    flags=re.I | re.S
 )
 
 
 with open(homepage, "w", encoding="utf-8") as f:
-    f.write(new_index)
+    f.write(index)
 
 
 print(
     f"Berhasil menemukan {len(articles)} artikel."
-      )
+)
+
+for article in articles:
+    print("-", article["title"])
