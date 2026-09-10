@@ -4,9 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Tentang PanduanUsaha | Panduan Bisnis & UMKM Indonesia</title>
-
-  <meta name="description" content="Tentang PanduanUsaha, website yang menyediakan panduan praktis untuk membantu pelaku usaha, UMKM, dan penjual online mengembangkan bisnis.">
+  <title>Tentang PanduanUsaha</title>
+  <meta name="description" content="Mengenal PanduanUsaha, website yang menyediakan panduan praktis untuk memulai, mengembangkan, dan mengelola usaha.">
 
   <style>
     * {
@@ -16,49 +15,40 @@
     }
 
     body {
-      font-family: Arial, Helvetica, sans-serif;
-      background: #f8fafc;
-      color: #1e293b;
+      font-family: Arial, sans-serif;
+      background: #f7f9fc;
+      color: #1f2937;
       line-height: 1.7;
-    }
-
-    .container {
-      width: min(100% - 32px, 900px);
-      margin: auto;
     }
 
     header {
       background: #ffffff;
-      border-bottom: 1px solid #e2e8f0;
+      border-bottom: 1px solid #e5e7eb;
       position: sticky;
       top: 0;
       z-index: 10;
     }
 
-    .navbar {
-      min-height: 68px;
+    .nav {
+      max-width: 1100px;
+      margin: auto;
+      padding: 16px 20px;
       display: flex;
-      align-items: center;
       justify-content: space-between;
-      gap: 20px;
+      align-items: center;
     }
 
     .logo {
-      text-decoration: none;
-      color: #0f172a;
       font-size: 21px;
       font-weight: 800;
-    }
-
-    .logo span {
       color: #2563eb;
+      text-decoration: none;
     }
 
     .back {
       text-decoration: none;
-      color: #475569;
+      color: #374151;
       font-size: 14px;
-      font-weight: 600;
     }
 
     .back:hover {
@@ -66,119 +56,153 @@
     }
 
     main {
-      padding: 50px 0 70px;
+      max-width: 900px;
+      margin: auto;
+      padding: 55px 20px 70px;
     }
 
     .hero {
       text-align: center;
-      margin-bottom: 35px;
+      margin-bottom: 40px;
     }
 
-    .label {
-      display: inline-block;
-      background: #dbeafe;
-      color: #1d4ed8;
-      padding: 6px 14px;
-      border-radius: 999px;
-      font-size: 13px;
-      font-weight: 700;
-      margin-bottom: 15px;
+    .hero h1 {
+      font-size: 40px;
+      color: #111827;
+      margin-bottom: 14px;
     }
 
-    h1 {
-      font-size: clamp(30px, 6vw, 44px);
-      line-height: 1.2;
-      color: #0f172a;
-      margin-bottom: 15px;
-    }
-
-    .intro {
+    .hero p {
       max-width: 680px;
       margin: auto;
-      color: #64748b;
-      font-size: 16px;
+      color: #6b7280;
+      font-size: 17px;
     }
 
-    .content {
+    .card {
       background: #ffffff;
-      border: 1px solid #e2e8f0;
-      border-radius: 20px;
-      padding: 28px;
-      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.05);
+      border: 1px solid #e5e7eb;
+      border-radius: 18px;
+      padding: 30px;
+      margin-bottom: 22px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.04);
     }
 
-    .content h2 {
-      color: #0f172a;
+    .card h2 {
       font-size: 23px;
-      margin: 28px 0 10px;
+      color: #111827;
+      margin-bottom: 14px;
     }
 
-    .content h2:first-child {
-      margin-top: 0;
+    .card p {
+      color: #4b5563;
+      margin-bottom: 13px;
     }
 
-    .content p {
-      color: #475569;
-      margin-bottom: 15px;
-    }
-
-    .content ul {
-      padding-left: 22px;
-      color: #475569;
-      margin-bottom: 15px;
-    }
-
-    .content li {
-      margin-bottom: 8px;
+    .card p:last-child {
+      margin-bottom: 0;
     }
 
     .highlight {
       background: #eff6ff;
       border-left: 4px solid #2563eb;
-      padding: 18px;
+      padding: 20px;
       border-radius: 10px;
-      margin: 22px 0;
-      color: #334155;
+      margin-top: 18px;
     }
 
-    .cta {
-      margin-top: 30px;
-      text-align: center;
-      padding: 25px;
-      background: #f1f5f9;
-      border-radius: 16px;
+    .highlight p {
+      color: #374151;
     }
 
-    .cta a {
+    .topics {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+      margin-top: 20px;
+    }
+
+    .topic {
+      background: #f9fafb;
+      border: 1px solid #e5e7eb;
+      border-radius: 12px;
+      padding: 18px;
+    }
+
+    .topic strong {
+      display: block;
+      color: #111827;
+      margin-bottom: 5px;
+    }
+
+    .topic span {
+      color: #6b7280;
+      font-size: 14px;
+    }
+
+    .button {
       display: inline-block;
-      margin-top: 12px;
+      margin-top: 10px;
+      padding: 12px 20px;
       background: #2563eb;
       color: #ffffff;
       text-decoration: none;
-      padding: 11px 20px;
       border-radius: 10px;
-      font-weight: 700;
+      font-weight: 600;
     }
 
-    .cta a:hover {
+    .button:hover {
       background: #1d4ed8;
     }
 
     footer {
-      background: #0f172a;
-      color: #94a3b8;
+      background: #111827;
+      color: #d1d5db;
       text-align: center;
-      padding: 28px 16px;
+      padding: 28px 20px;
       font-size: 14px;
     }
 
-    @media (max-width: 600px) {
-      .container {
-        width: min(100% - 24px, 900px);
+    footer p {
+      margin-bottom: 8px;
+    }
+
+    footer p:last-child {
+      margin-bottom: 0;
+    }
+
+    footer a {
+      color: #93c5fd;
+      text-decoration: none;
+    }
+
+    @media (max-width: 650px) {
+      main {
+        padding: 40px 16px 55px;
       }
 
-      .navbar {
-        min-height: 62px;
+      .hero h1 {
+        font-size: 31px;
+      }
+
+      .hero p {
+        font-size: 15px;
+      }
+
+      .card {
+        padding: 22px;
+      }
+
+      .card h2 {
+        font-size: 20px;
+      }
+
+      .topics {
+        grid-template-columns: 1fr;
+      }
+
+      .nav {
+        padding: 14px 16px;
       }
 
       .logo {
@@ -188,63 +212,77 @@
       .back {
         font-size: 13px;
       }
-
-      main {
-        padding: 38px 0 55px;
-      }
-
-      .content {
-        padding: 22px 18px;
-        border-radius: 16px;
-      }
-
-      .content h2 {
-        font-size: 20px;
-      }
-
-      .intro {
-        font-size: 15px;
-      }
-
-      .cta a {
-        width: 100%;
-      }
     }
   </style>
 </head>
 
 <body>
 
-  <header>
-    <div class="container navbar">
-      <a href="index.html" class="logo">
-        Panduan<span>Usaha</span>
-      </a>
+<header>
+  <div class="nav">
+    <a href="index.html" class="logo">PanduanUsaha</a>
+    <a href="index.html" class="back">← Kembali</a>
+  </div>
+</header>
 
-      <a href="index.html" class="back">
-        ← Kembali
-      </a>
+<main>
+
+  <section class="hero">
+    <h1>Tentang PanduanUsaha</h1>
+
+    <p>
+      PanduanUsaha adalah website yang menyediakan panduan praktis
+      untuk membantu pemula dan pelaku usaha memahami berbagai hal
+      penting dalam menjalankan dan mengembangkan usaha.
+    </p>
+  </section>
+
+  <section class="card">
+    <h2>📖 Apa Itu PanduanUsaha?</h2>
+
+    <p>
+      PanduanUsaha dibuat sebagai sumber informasi sederhana dan
+      mudah dipahami bagi siapa saja yang ingin memulai usaha,
+      menjalankan bisnis kecil, atau mengembangkan usaha yang sudah ada.
+    </p>
+
+    <p>
+      Kami membahas berbagai topik yang berkaitan dengan usaha,
+      mulai dari perhitungan harga jual, keuntungan, pemasaran,
+      jualan online, hingga pengelolaan keuangan usaha.
+    </p>
+
+    <div class="highlight">
+      <p>
+        <strong>Tujuan kami sederhana:</strong>
+        membantu pembaca mendapatkan informasi yang praktis sehingga
+        dapat mengambil keputusan usaha dengan lebih baik.
+      </p>
     </div>
-  </header>
+  </section>
 
-  <main>
-    <div class="container">
+  <section class="card">
+    <h2>🎯 Tujuan Kami</h2>
 
-      <section class="hero">
-        <div class="label">Tentang PanduanUsaha</div>
+    <p>
+      Banyak orang ingin memulai usaha tetapi masih bingung harus
+      mulai dari mana. PanduanUsaha hadir untuk membantu menjawab
+      pertanyaan-pertanyaan dasar tersebut melalui artikel yang
+      praktis dan mudah dipahami.
+    </p>
 
-        <h1>Panduan Praktis untuk Mengembangkan Usaha</h1>
+    <p>
+      Kami berusaha menyajikan informasi dengan bahasa yang sederhana,
+      contoh yang mudah dipahami, dan langkah-langkah yang dapat
+      diterapkan dalam kehidupan usaha sehari-hari.
+    </p>
+  </section>
 
-        <p class="intro">
-          PanduanUsaha adalah website yang menyediakan informasi,
-          tips, dan panduan praktis seputar bisnis, UMKM, jualan online,
-          pemasaran, dan pengelolaan usaha.
-        </p>
-      </section>
+  <section class="card">
+    <h2>👥 Untuk Siapa PanduanUsaha?</h2>
 
-      <article class="content">
+    <p>
+      PanduanUsaha ditujukan terutama untuk:
+    </p>
 
-        <h2>Apa itu PanduanUsaha?</h2>
-
-        <p>
-          PanduanUsaha dibuat
+    <div class="topics
