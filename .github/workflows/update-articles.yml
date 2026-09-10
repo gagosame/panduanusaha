@@ -1,169 +1,29 @@
-import os
-import re
-import html
+name: Update Artikel Homepage
 
-homepage = "index.html"
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
 
-excluded = {
-    "index.html",
-    "tentang.html",
-    "privasi.html",
-    "syarat.html",
-    "kontak.html",
-}
+permissions:
+  contents: write
 
-articles = []
+jobs:
+  update:
+    runs-on: ubuntu-latest
 
-for filename in os.listdir("."):
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
 
-    if not filename.endswith(".html"):
-        continue
+      - name: Update homepage
+        run: python3 update_articles.py
 
-    if filename in excluded:
-        continue
-
-    try:
-        with open(filename, "r", encoding="utf-8") as f:
-            content = f.read()
-    except Exception:
-        continue
-
-    # Menerima artikel lama maupun artikel baru
-    if not re.search(r"<article\b", content, re.I):
-        continue
-
-    title_match = re.search(
-        r"<title>(.*?)</title>",
-        content,
-        re.I | re.S
-    )
-
-    description_match = re.search(
-        r'<meta\s+name="description"\s+content="(.*?)"',
-        content,
-        re.I | re.S
-    )
-
-    category_match = re.search(
-        r'<span\s+class="category">(.*?)</span>',
-        content,
-        re.I | re.S
-    )
-
-    title = (
-        title_match.group(1).strip()
-        if title_match
-        else filename.replace(".html", "")
-    )
-
-    description = (
-        description_match.group(1).strip()
-        if description_match
-        else "Panduan praktis dari PanduanUsaha."
-    )
-
-    category = (
-        category_match.group(1).strip()
-        if category_match
-        else "Artikel"
-    )
-
-    title = re.sub(
-        r"\s*\|\s*PanduanUsaha\s*$",
-        "",
-        title
-    )
-
-    articles.append({
-        "file": filename,
-        "title": title,
-        "description": description,
-        "category": category
-    })
-
-
-# Urutkan berdasarkan nama file
-articles.sort(key=lambda x: x["file"])
-
-
-cards = []
-
-for article in articles:
-
-    filename = html.escape(
-        article["file"],
-        quote=True
-    )
-
-    title = html.escape(article["title"])
-    description = html.escape(article["description"])
-    category = html.escape(article["category"])
-
-    cards.append(f"""
-      <article class="article-card">
-        <span class="article-category">{category}</span>
-        <h3>{title}</h3>
-        <p>{description}</p>
-        <a href="{filename}">Baca selengkapnya →</a>
-      </article>""")
-
-
-generated = "\n".join(cards)
-
-
-with open(homepage, "r", encoding="utf-8") as f:
-    index = f.read()
-
-
-# Buat ulang seluruh bagian artikel secara bersih
-new_article_section = f"""
-<section id="artikel">
-
-  <div class="container">
-
-    <div class="section-title">
-      <h2>Artikel Terbaru</h2>
-      <p>
-        Panduan terbaru dari PanduanUsaha.
-      </p>
-    </div>
-
-    <div id="article-list" class="articles">
-
-{generated}
-
-    </div>
-
-  </div>
-
-</section>
-"""
-
-
-pattern = r'<section id="artikel">.*?</section>'
-
-if not re.search(pattern, index, re.I | re.S):
-    raise Exception(
-        "Bagian artikel tidak ditemukan di index.html"
-    )
-
-
-index = re.sub(
-    pattern,
-    new_article_section.strip(),
-    index,
-    count=1,
-    flags=re.I | re.S
-)
-
-
-with open(homepage, "w", encoding="utf-8") as f:
-    f.write(index)
-
-
-print(
-    f"Berhasil menemukan {len(articles)} artikel."
-)
-
-for article in articles:
-    print("-", article["title"])
+      - name: Commit perubahan
+        run: |
+          git config user.name "PanduanUsaha Bot"
+          git config user.email "actions@github.com"
+          git add index.html
+          git diff --cached --quiet || git commit -m "Update artikel otomatis"
+          git push
